@@ -6,4 +6,4 @@
 //  Copyright © 2019 lyzkov. All rights reserved.
 //
 
-protocol EventType { }
+public protocol EventType { }

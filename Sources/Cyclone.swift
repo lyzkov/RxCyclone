@@ -9,7 +9,7 @@
 import RxSwift
 import RxFeedback
 
-protocol Cyclone {
+public protocol Cyclone {
     associatedtype State: ReducibleState
     typealias Event = State.Event
 
@@ -18,7 +18,7 @@ protocol Cyclone {
 
 extension Cyclone {
 
-    func state(from events: Observable<Event>) -> Observable<State> {
+    private func state(from events: Observable<Event>) -> Observable<State> {
         return Observable
             .system(
                 initialState: State.initial,
@@ -29,7 +29,9 @@ extension Cyclone {
             .share(replay: 1)
     }
 
-    func state(from events: Observable<Event>...) -> Observable<State> {
+    public func state<EventsSequence: ObservableConvertibleType>(from events: EventsSequence...) -> Observable<State>
+        where EventsSequence.Element == Event {
+        let events = events.map { $0.asObservable() }
         return state(from: Observable.merge(events))
     }
 
