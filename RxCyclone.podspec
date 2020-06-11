@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = '0.1.0'
   s.summary          = 'Reactive iOS architecture based on reducible machine state container.'
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Reactive iOS architecture framework based on reducible machine state container.
                        DESC
 
   s.homepage         = 'https://github.com/lyzkov/RxCyclone'

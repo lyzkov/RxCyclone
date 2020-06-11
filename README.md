@@ -7,13 +7,38 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, just open Example directory.
 
 ## Requirements
 
 ## Installation
 
-RxCyclone is available through [CocoaPods](https://cocoapods.org). To install
+### Swift Package Manager
+
+Add this repo URL as a package dependency.
+
+```swift
+// swift-tools-version:5.2
+
+import PackageDescription
+
+let package = Package(
+    ...
+    dependencies: [
+        .package(url: "https://github.com/lyzkov/RxStorm.git", from: "0.1.0"),
+    ],
+    targets: [
+        .target(
+            name: "Your target",
+            dependencies: ["RxStorm"]),
+        )
+    ],
+    ...
+)
+```
+### Cocoapods
+
+RxStorm is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
